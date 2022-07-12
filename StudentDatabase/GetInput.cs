@@ -1,53 +1,56 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using static StudentDatabase.GlobalVariables;
 
 namespace StudentDatabase
 {
     internal class GetInput
     {
-        public static uint GetInt(int range)
+        public static uint GetInt()
         {
             bool isGood = false;
             uint output = 0;
+            Console.Clear();
+            Console.WriteLine($"Welcome! Which student would you like to learn more about?");
 
             do
             {
+                Console.Write($"Enter a number 1-{name.Length} or enter list to see a list of students : ");
+                string input = Console.ReadLine().Trim();
                 Console.Clear();
-                Console.Write($"Welcome! Which student would you like to learn more about? Enter a number 1-{range}: ");
-                string input = Console.ReadLine().ToLower().Trim();
-                try
+
+                if(list.Contains(input.ToLower()))
                 {
-                    output = uint.Parse(input);
-                    if(output > 0 && output <= range)
+                    Console.WriteLine("List of students");
+                    for(int i = 0; i < name.Length; i++)
                     {
-                        isGood = true;
-                    }
-                    else
-                    {
-                        Console.WriteLine("That index is not listed");
+                        Console.WriteLine($"{i + 1} {name[i]}");
                     }
                 }
-                catch(FormatException)
+                else if(name.Contains(input))
                 {
-                    Console.WriteLine("Sorry that is not a number.");
-                    isGood = false;
+                    output = (uint)Array.IndexOf(name , input) + 1;
+                    isGood = true;
                 }
-                catch(OverflowException)
+                else
                 {
-                    Console.WriteLine("Sorry that number is out of range.");
-                    isGood = false;
-                }
-                if(!isGood)
-                {
-                    Console.WriteLine("Press any key to continue.");
-                    Console.ReadKey();
+                    try
+                    {
+                        output = uint.Parse(input);
+                        if(output > 0 && output <= name.Length) isGood = true;
+                        else Console.WriteLine("That index is not listed");
+                    }
+                    catch(FormatException)
+                    {
+                        Console.WriteLine("Sorry that is not a number.");                       
+                    }
+                    catch(OverflowException)
+                    {
+                        Console.WriteLine("Sorry that number is out of range.");                      
+                    }
                 }
             } while(!isGood);
 
             return output;
+
         }
     }
 }
