@@ -13,7 +13,7 @@ namespace StudentDatabase
 
             do
             {
-                Console.Write($"Enter a number 1-{name.Length} or enter list to see a list of students : ");
+                Console.Write($"Enter the students name or number 1-{name.Length}\nEnter list to see a list of students : ");
                 string input = Console.ReadLine().Trim();
                 Console.Clear();
 
@@ -50,6 +50,19 @@ namespace StudentDatabase
             } while(!isGood);
 
             return output;
+
+        }
+
+        public static bool Continue()
+        {
+            do
+            {
+                Console.Clear();
+                Console.WriteLine("You you like to look up anouther student Y/N?");
+                string input = Console.ReadLine().ToLower().Trim();
+                if(yes.Contains(input)) return true;
+                else if(no.Contains(input)) return false; 
+            } while(true);
 
         }
     }

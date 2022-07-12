@@ -1,10 +1,15 @@
-﻿namespace StudentDatabase
+﻿using static StudentDatabase.GetInput;
+
+namespace StudentDatabase
 {
     internal class Program
     {
         static void Main()
         {
-            _ = new StudentDatabase();
+            do
+            {
+                _ = new StudentDatabase(); 
+            } while(Continue());
         }
     }
 }

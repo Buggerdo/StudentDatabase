@@ -11,7 +11,7 @@ namespace StudentDatabase
             uint intInput = GetInput.GetInt();
             do
             {
-                Console.Write($"Student {intInput} is {name[intInput - 1]}. What would you like to know? Enter \"hometown\" or \"favorite food\" : ");
+                Console.Write($"Student {intInput} is {name[intInput - 1]}. What would you like to know? Enter \"Hometown\" or \"Favorite Food\" : ");
                 string strInput = Console.ReadLine().ToLower().Trim();
 
                 if(GlobalVariables.home.Contains(strInput))
@@ -31,6 +31,8 @@ namespace StudentDatabase
                     isCategory = false;
                 } 
             } while(!isCategory);
+            Console.WriteLine("Press any key to continue.");
+            Console.ReadKey();
         }
     }
 }
