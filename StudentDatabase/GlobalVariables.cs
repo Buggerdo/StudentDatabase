@@ -8,13 +8,11 @@ namespace StudentDatabase
         public static string[] homeTown = { "Coral", "Grand Rapids", "Detroit", "Lansing", "Ann Arbor", "Flint", "Kalamazoo", "Saginaw", "Bay City" };
         public static string[] favoritFood = { "Pizza", "Ice Cream", "Steak", "Waffles", "Beef", "Bacon", "Chicken", "Corned beef", "Pancakes" };
         
-
         // Acceptable answers
         public static string[] home = { "home town", "home", "town", "h", "t" , "ht" };
         public static string[] food = { "favorit food", "favorit", "food", "f" , "ff" };
         public static string[] list = { "list", "l"};
         public static string[] yes = { "yes", "y", "yup" };
         public static string[] no = { "no", "n", "nope" };
-
     }
 }

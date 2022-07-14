@@ -48,9 +48,7 @@ namespace StudentDatabase
                     }
                 }
             } while(!isGood);
-
             return output;
-
         }
 
         public static bool Continue()
@@ -63,7 +61,6 @@ namespace StudentDatabase
                 if(yes.Contains(input)) return true;
                 else if(no.Contains(input)) return false; 
             } while(true);
-
         }
     }
 }
