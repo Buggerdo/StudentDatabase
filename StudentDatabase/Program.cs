@@ -8,7 +8,7 @@ namespace StudentDatabase
         {
             do
             {
-                _ = new StudentDatabase(); 
+                _ = new StudentDatabase();
             } while(Continue());
         }
     }
